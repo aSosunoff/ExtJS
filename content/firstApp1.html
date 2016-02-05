@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Создание первого приложения</title>
+    <link rel="stylesheet" type="text/css" href="../framework/extjs-4.1.1-src/extjs-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../framework/extjs-4.1.1-src/extjs-4.1.1/ext-all-dev.js"></script>
+    <!--<script type="text/javascript" src="/framework/extjs-4.1.1-src/extjs-4.1.1/ext-all.js"></script>-->
+    <!--<script type="text/javascript" src="js/app.js"></script>-->
+    <script type="text/javascript">
+        Ext.application({                                               //Инициализируем новое приложение
+            name: 'First Application',                                  //Задаём имя
+            launch: function(){
+                Ext.create('Ext.container.Viewport',{                   //Создаём новый объекст
+                    layout: 'fit',                                      //Назначаем расположение
+                    item:[{                                             //Задаём массив элементов
+                        title: 'Web application',
+                        html: '<h3>Первое приложение на ExtJS</h3>'
+                    }]
+                });
+            }
+        });
+
+        Ext.onReady(function(){
+            Ext.create('Ext.container.Viewport', {
+                layout: 'fit',
+                items: [
+                    {
+                        title: 'Приложение на Ext JS 4',
+                        html : '<h3>Добро пожаловать в мир Ext JS 4!</h3>'
+                    }
+                ]
+            });
+        });
+
+/*
+ Метод Ext.application у нас инициализирует приложение ExtJS, внутри которого и происходит дальнейшее создание приложение и указание его параметров. Данный подход используется при создании приложений по шаблону MVC.
+
+ Но вместо этого метода можно употреблять другой Ext.onReady, особенно когда мы не планируем создавать полнофункциональное приложение MVC.
+
+ Этот метод также срабатывает после загрузки страницы и подобен функции jQuery. Он инициализирует все элементы ExtJS. Мы можем переписать предыдущий пример с использованием Ext.onReady:
+*/
+    </script>
+</head>
+<body>
+
+</body>
+</html>

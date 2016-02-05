@@ -2,59 +2,14 @@
  * Created by Пользователь on 29.01.2016.
  */
 
-////ПРОСТОЕ ОКНО С КОНТЕНТОМ
-//Ext.onReady(function(){// Инициализирует компоненты ExtJS
-//    Ext.create('Ext.container.Viewport',{//Создаёт объект контейнер. Который будет растянут во всю страницу (Viewport)
-//        layout: 'fit',//Правило расположения компонентов в самом контейнере
-//        items:[{
-//            title: 'Титульник приложения',
-//            html: 'Контент'
-//        }]
-//    })
-//});
-////
 
-////Инициализация новых классов
-////Ext.define(className, members, onClassCreate);
-//Ext.define('NameSpaceClass.Person',{//Определяем новый класс в пространстве имён NameSpaceClass
-//    name: 'firstName',//задаём поля
-//    surname: 'secondName',//задаём поля
-//    getInfoPerson: function () {//описываем медод в классе
-//        alert('name--> ' + this.name + ' surname--> ' + this.surname);
-//    }
-//});
-//
-//var perem = new NameSpaceClass.Person();//Создаём экземпляр класса
-//perem.getInfoPerson();//Вызываем метод класса
-//
-//var param2 = Ext.create('NameSpaceClass.Person');//ТО ЖЕ ЧТО И ВЫШЕ. создаём экземпляр класса
-//param2.getInfoPerson();//Вызываем метод
-//param2.name = 'newName';//Задаём новое значение подя
-//param2.surname = 'newSurname';
 
-////Конструкторы
-//Ext.define('Class.WithConstructor',{
-//    Name: '',
-//    Surname: '',
-//    constructor: function(n, s){//Объявляем конструктор в классе
-//        if(n && s){
-//            this.Name = n;
-//            this.Surname = s;
-//        }
-//    },
-//    GetInfo: function(){
-//        alert(this.Name + ' ' + this.Surname);
-//    }
-//});
-//
-//var t = new Class.WithConstructor();
-//t.GetInfo();
-//
-//var w = new Class.WithConstructor('Александр', 'Сосунов');
-//w.GetInfo();
+
+
+
 
 //Ext.define('Class.Person', {//Объявление класса
-//    config: {//Секция которая автоматически создаёт свойства для поллей находящихся в этом блоке
+//    config: {
 //        name: '',
 //        surName: ''
 //    },

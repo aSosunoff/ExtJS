@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Классы</title>
+    <link rel="stylesheet" type="text/css" href="../framework/extjs-4.1.1-src/extjs-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../framework/extjs-4.1.1-src/extjs-4.1.1/ext-all-dev.js"></script>
+    <!--<script type="text/javascript" src="/framework/extjs-4.1.1-src/extjs-4.1.1/ext-all.js"></script>-->
+    <!--<script type="text/javascript" src="js/app.js"></script>-->
+    <script type="text/javascript">
+        //Инициализация новых классов
+        //Ext.define(className, members, onClassCreate);
+        Ext.onReady(function(){
+            Ext.define('NameSpaceClass.Person',{//Определяем новый класс в пространстве имён NameSpaceClass
+                config: {//Секция которая автоматически создаёт методы get, set
+                    name: 'firstName',//задаём поля
+                    surname: 'secondName',//задаём поля
+                },
+                constructor: function(n, s){
+                    this.initConfig();//Инициализация свойств
+                    if(n && s){
+                        this.setName(n);
+                        this.setSurname(s);
+                    }
+                },
+                getInfoPerson: function () {//описываем медод в классе
+                    alert('name: ' + this.getName() + ' surname: ' + this.getSurname());
+                }
+            });
+
+
+
+
+            var perem = new NameSpaceClass.Person('11111', '222222');//Создаём экземпляр класса
+            perem.getInfoPerson();//Вызываем метод класса
+
+            var param2 = Ext.create('NameSpaceClass.Person', '333333', '444444');//ТО ЖЕ ЧТО И ВЫШЕ. создаём экземпляр класса
+            param2.getInfoPerson();//Вызываем метод
+            param2.name = 'newName';//Задаём новое значение подя
+            param2.surname = 'newSurname';
+            param2.getInfoPerson();//Вызываем метод с новыми значениями
+        });
+
+/*
+ className : определяет пространство имен и имя класса
+
+ loader : загружает все другие необходимые классы и зависимости, если таковые не имеются, данный этап пропускается
+
+ extend : осуществляет наследование от классов, которые определены в секции extend
+
+ statics : обрабатывает и создает статические члены класса, которые определены в секции statics
+
+ inheritableStatics : наследует статические члены родительского класса, если таковые определены
+
+ config : обрабатывает свойства, определенные в секции config. У этих свойств создаются методы get/set/applay/reset
+
+ mixins : добавляет к текущему классу функциональность миксин-классов, которые определены в секции mixins
+
+ xtype : определяет параметр xtype для нового класса
+
+ alias : устанавливает псевдоним нового класса
+
+ После завершения всех этапов предобработки начинается постобработка, на этапе которой срабатывают следующие обработчики:
+
+ alias : регистрирует новый класс и его псевдоним
+
+ singleton : создает одиночный объект нового класса
+
+ alternateClassName : определяет альтернативные имена для нового класса
+
+ uses : импортирует классы, которые будут использоваться вместе с новым классом
+*/
+    </script>
+</head>
+<body>
+
+</body>
+</html>
