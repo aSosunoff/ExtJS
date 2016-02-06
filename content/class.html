@@ -29,7 +29,23 @@
                 }
             });
 
-
+            Ext.define('Class.Student',{
+                extend: 'NameSpaceClass.Person',//наследование
+                config: {
+                    course: 0
+                },
+                constructor: function(n, s, c){
+                    this.initConfig();
+                    if(c){
+                        this.setCourse(c);
+                    }
+                    this.callParent([n, s]);
+                },
+                getInfoPerson: function(){
+                    this.callParent();//переопределения метода
+                    alert('Course: ' + this.course);
+                }
+            });
 
 
             var perem = new NameSpaceClass.Person('11111', '222222');//Создаём экземпляр класса
@@ -40,6 +56,9 @@
             param2.name = 'newName';//Задаём новое значение подя
             param2.surname = 'newSurname';
             param2.getInfoPerson();//Вызываем метод с новыми значениями
+
+            var stud = new Class.Student('alex', 'dmitrov', 1);
+            stud.getInfoPerson();
         });
 
 /*
