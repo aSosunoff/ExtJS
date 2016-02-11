@@ -1,11 +1,86 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
-    <title>Создание первого приложения</title>
+    <title>lesson PHP</title>
 </head>
 <body>
+    <?php
+    //Работа с БД
+    //echo phpinfo();
 
+
+        $connection = mysql_connect("localhost","root","");
+        $db = mysql_selectdb("db_first");
+        if($connection || $db){
+            exit(mysql_error());
+            echo "1";
+        }
+        else{
+            echo "Вы подключились";
+            echo "2";
+        }
+        $res = mysql_query("SELECT * FROM news");
+
+        mysql_close();
+
+        $row = mysql_fetch_array($res);
+
+        echo $row['title'];
+
+
+
+    ?>
+    <?php
+    //переменные
+    /*    $a = 1;
+        $a = 1.2;
+        $a = "hello";
+    */
+    ?>
+    <?php
+    //массив
+    /*
+        $ar = Array('First element', 'Second element');
+        echo $ar[0];
+        echo $ar[1];
+    */
+    ?>
+    <br/>
+    <?php
+    //ассоциативный массив
+    /*
+        $ar = Array('key'=>'Первый элемент', 'key2'=>'Второй элемент');
+        echo $ar['key'];
+        echo $ar['key2'];
+    */
+    ?>
+    <br/>
+    <?php
+    //многомерный массив
+    /*
+        $ar = Array(
+            Array(1,2,3,4,5),
+            Array('key'=>6)
+        );
+        echo $ar[0][2];
+        echo $ar[1]['key'];
+    */
+    ?>
+    <?php
+    //объявление объекта
+    /*
+        class student{
+            var $name = "Александр";
+            function GetName(){
+                echo $this->name;
+            }
+        }
+
+        $st = new student();
+        $st->GetName();
+    */
+    ?>
 </body>
 </html>
