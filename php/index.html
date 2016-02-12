@@ -6,81 +6,62 @@
     <title>lesson PHP</title>
 </head>
 <body>
+<a href="add.html">Добавить</a>
+<?php
+include "DBConnect.php";
+?>
     <?php
     //Работа с БД
     //echo phpinfo();
+    //$this->dbTable = $dbTable;
+//    $server = "localhost";
+//    $dbUser = "admin";
+//    $dbPassword = "1234";
+//
+//    $dbTable = "user";
+//
+  //  $connection = mysql_connect("localhost", "admin", "1234");
+ //   mysql_select_db("db_first");
+//    mysql_set_charset("utf8");
+//
 
 
-        $connection = mysql_connect("localhost","root","");
-        $db = mysql_selectdb("db_first");
-        if($connection || $db){
-            exit(mysql_error());
-            echo "1";
-        }
-        else{
-            echo "Вы подключились";
-            echo "2";
-        }
-        $res = mysql_query("SELECT * FROM news");
+    $t = new DBConnect("localhost", "admin", "1234", "db_first");
+    $t->InsertItem($arDate);
 
-        mysql_close();
 
-        $row = mysql_fetch_array($res);
 
-        echo $row['title'];
+    //var_dump($arDate[0]['VALUE'][1]);
+    //$str = "INSERT INTO `".$arDate[0]['NAME_TABLE']."`(`".$arDate[0]['INTO'][0]."`, `".$arDate[0]['INTO'][1]."`) VALUES ('".$arDate[0]['VALUE'][0]."','".$arDate[0]['VALUE'][1]."')";
+   // mysql_query("INSERT INTO `".$arDate[0]['NAME_TABLE']."` (`".$arDate[0]['INTO'][0]."`, `".$arDate[0]['INTO'][1]."`) VALUES ('', '".$arDate[0]['VALUE'][0]."')");
+    //mysql_close($connection);
+    //INSERT INTO `user`(`ID`, `NAME`) VALUES ('','$name')
 
+        //$connection = mysql_connect("localhost","admin","1234");
+        //$db = mysql_select_db("db_first");
+
+
+//UPDATE
+//        $res = mysql_query("UPDATE `user` SET `NAME` = 'qwedadqw' WHERE `ID` = 1");
+
+//INSERT
+//        mysql_set_charset("utf8");
+//
+
+
+
+//READ
+//        mysql_set_charset("utf8");
+//        $res = mysql_query("SELECT * FROM user");
+//
+//        while($row = mysql_fetch_array($res)) {
+//            echo $row['ID'] . " " . $row['NAME'] . "<br/>";
+//
+//        }
+   // mysql_close($connection)
 
 
     ?>
-    <?php
-    //переменные
-    /*    $a = 1;
-        $a = 1.2;
-        $a = "hello";
-    */
-    ?>
-    <?php
-    //массив
-    /*
-        $ar = Array('First element', 'Second element');
-        echo $ar[0];
-        echo $ar[1];
-    */
-    ?>
-    <br/>
-    <?php
-    //ассоциативный массив
-    /*
-        $ar = Array('key'=>'Первый элемент', 'key2'=>'Второй элемент');
-        echo $ar['key'];
-        echo $ar['key2'];
-    */
-    ?>
-    <br/>
-    <?php
-    //многомерный массив
-    /*
-        $ar = Array(
-            Array(1,2,3,4,5),
-            Array('key'=>6)
-        );
-        echo $ar[0][2];
-        echo $ar[1]['key'];
-    */
-    ?>
-    <?php
-    //объявление объекта
-    /*
-        class student{
-            var $name = "Александр";
-            function GetName(){
-                echo $this->name;
-            }
-        }
 
-        $st = new student();
-        $st->GetName();
-    */
-    ?>
 </body>
 </html>
