@@ -10,24 +10,24 @@ class DBConnect
     {
 
         $this->dbTable = $dbTable;
-        $this->connection = mysql_connect("localhost", $dbUser, $dbPassword);
-        mysql_select_db($dbTable);
-        mysql_set_charset("utf8");
+        $this->connection = mysqli_connect("localhost", $dbUser, $dbPassword);
+        mysqli_select_db($dbTable);
+        mysqli_set_charset("utf8");
     }
 
     function __destruct()
     {
-        mysql_close($this->connection);
+        mysqli_close($this->connection);
     }
 
     function DeleteItem($idItem){
-        mysql_query("DELETE FROM `user` WHERE `ID` = $idItem");
+        mysqli_query("DELETE FROM `user` WHERE `ID` = $idItem");
     }
     function UpdateItem($idItem){
 
     }
     function InsertItem($arDate){
-        mysql_query("INSERT INTO `"
+        mysqli_query("INSERT INTO `"
             .$arDate[0]['NAME_TABLE'].
             "` (`"
             .$arDate[0]['INTO'][0].
